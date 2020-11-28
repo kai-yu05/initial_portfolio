@@ -8,7 +8,7 @@
 body {
   @include background;
   background: $primary_color;
-  color: #e3e2df;
+  color: $third_color;
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -25,16 +25,10 @@ h3 {
   &.lg-heading {
     font-size: 6rem;
   }
-
-  &.sm-heading {
-    margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
-    background: rgba(lighten($primary_color, 2), 0.5);
-  }
 }
 
 a {
-  color: #e3e2df;
+  color: $third_color;
   text-decoration: none;
 }
 
@@ -76,7 +70,7 @@ main {
 
 .about-info {
   display: grid;
-  grid-gap: 30px;
+  grid-gap: 40px;
   grid-template-areas:
     "bioimage bio bio"
     "job1 job2 job3";
@@ -111,6 +105,124 @@ main {
     padding: 0.5rem;
     border-bottom: $secondary_color 5px solid;
   }
+}
+
+// Download Button
+
+/* Layout Styling */
+
+#container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0 50px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Button Styles */
+
+.button {
+  display: inline-flex;
+  height: 40px;
+  width: 160px;
+  border: 2px solid $third_color;
+  margin: 20px 20px 20px 20px;
+  color: $secondary_color;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Third Button */
+
+#button-3 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-3 a {
+  position: relative;
+  transition: all 0.45s ease-Out;
+}
+
+#circle {
+  width: 0%;
+  height: 0%;
+  opacity: 0;
+  line-height: 40px;
+  border-radius: 50%;
+  background: $third_color;
+  position: absolute;
+  transition: all 0.5s ease-Out;
+  top: 20px;
+  left: 70px;
+}
+
+#button-3:hover #circle {
+  width: 200%;
+  height: 500%;
+  opacity: 1;
+  top: -70px;
+  left: -70px;
+}
+
+#button-3:hover a {
+  color: $secondary_color;
+}
+
+a {
+  color: $third_color;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+// Projects
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px $third_color solid;
+
+    &:hover {
+      opacity: 0.6;
+      border-color: $secondary_color;
+      @include easeOut;
+    }
+  }
+}
+
+// Project Button Styles
+.btn {
+  display: block;
+  padding: 00.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary_color;
+    color: set-text-color ($secondary_color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($primary_color, 90);
+  color: $third_color;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($primary_color, 90);
+  color: $primary_color;
 }
 
 #main-footer {
